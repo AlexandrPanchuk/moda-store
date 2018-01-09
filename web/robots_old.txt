@@ -1,0 +1,3 @@
+User-agent: *
+Host: https://imoda-store.com/
+Sitemap: https://imoda-store.com/sitemap.xml
