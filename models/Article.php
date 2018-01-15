@@ -70,9 +70,26 @@ class Article extends \yii\db\ActiveRecord
         return $this->save(false);
     }
 
+
+    public function getCategory()
+    {
+        return $this->hasOne(ArticleCategory::className(), ['id'=>'category_id']);
+    }
+
+
     public function getImage()
     {
         return ($this->image) ? '/upload/store/blog/' . $this->image : '/no-image.png';
+    }
+
+    public function saveCategory($categoryId)
+    {
+        $category = ArticleCategory::findOne($categoryId);
+
+        if ($category != null) {
+            $this->link('category', $category);
+            return true;
+        }
     }
 
 }
